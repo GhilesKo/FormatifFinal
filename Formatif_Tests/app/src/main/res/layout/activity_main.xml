@@ -41,7 +41,15 @@
         android:layout_gravity="right"
         >
 
+
     </Button>
+    <Button
+        android:id="@+id/btnRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recycler!"
+        android:layout_gravity="right"
+        ></Button>
 
 
 </LinearLayout>

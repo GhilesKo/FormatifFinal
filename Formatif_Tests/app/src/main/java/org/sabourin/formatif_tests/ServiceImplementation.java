@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ServiceImplementation {
 
-    private List<Evaluation> evaluations = new ArrayList<Evaluation>();
+    public List<Evaluation> evaluations = new ArrayList<Evaluation>();
 
 
 

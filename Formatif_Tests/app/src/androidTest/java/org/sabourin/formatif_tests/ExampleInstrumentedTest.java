@@ -14,23 +14,19 @@ import static org.junit.Assert.*;
 
 public class ExampleInstrumentedTest {
 
-    ServiceImplementation service = new ServiceImplementation();
+   private ServiceImplementation service = new ServiceImplementation();
     /* -------------- ÉCRIRE VOS TESTS ICI -------------*/
 
-    @Test
-    public void exemple(){
-        assertTrue(true);
-    }
+
 
     @Test
     public void AjouterEvaluationOk() throws EvaluationException {
-        List<Evaluation> evaluationList = new ArrayList<>();
-        Evaluation evaluation = new Evaluation("Ghiles",70,80);
 
+        Evaluation evaluation = new Evaluation("Ghiles",70,80);
          service.ajouterEvaluation(evaluation);
 
 
-        Assert.assertEquals(1,evaluationList.size());
+        Assert.assertEquals(1, service.evaluations.size() );
 
 
     }
@@ -39,7 +35,6 @@ public class ExampleInstrumentedTest {
     public void MemeNomKO() throws EvaluationException
 
     {
-        List<Evaluation> evaluationList = new ArrayList<>();
         Evaluation evaluation = new Evaluation("Ghiles",70,80);
         Evaluation evaluation2 = new Evaluation("Ghiles",80,90);
         service.ajouterEvaluation(evaluation);
@@ -54,9 +49,9 @@ public class ExampleInstrumentedTest {
     public void NoteTropBasseKO() throws EvaluationException
 
     {
-        List<Evaluation> evaluationList = new ArrayList<>();
-        Evaluation evaluation = new Evaluation("Ghiles",70,0);
 
+        Evaluation evaluation = new Evaluation("Ghiles",70,0);
+        service.ajouterEvaluation(evaluation);
 
 
         Assert.fail("Exception mauvaise évaluation lancé");
@@ -65,14 +60,36 @@ public class ExampleInstrumentedTest {
     public void NoteTropHausseKO() throws EvaluationException
 
     {
-        List<Evaluation> evaluationList = new ArrayList<>();
-        Evaluation evaluation = new Evaluation("Ghiles",70,260);
-        evaluationList.add(evaluation);
+
+        Evaluation evaluation = new Evaluation("Ghiles",70,258);
+        service.ajouterEvaluation(evaluation);
 
 
         Assert.fail("Exception mauvaise évaluation lancé");
     }
 
+    @Test(expected = EvaluationException.class)
+    public void PoidTropHautKO() throws EvaluationException
+
+    {
+
+        Evaluation evaluation = new Evaluation("Ghiles",150,80);
+        service.ajouterEvaluation(evaluation);
+
+
+        Assert.fail("Exception mauvaise évaluation lancé");
+    }
+    @Test(expected = EvaluationException.class)
+    public void PoidTropBasKO() throws EvaluationException
+
+    {
+
+        Evaluation evaluation = new Evaluation("Ghiles",0,80);
+        service.ajouterEvaluation(evaluation);
+
+
+        Assert.fail("Exception mauvaise évaluation lancé");
+    }
 
 
 

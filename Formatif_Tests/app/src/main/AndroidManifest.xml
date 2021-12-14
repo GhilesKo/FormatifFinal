@@ -23,6 +23,9 @@
         <activity android:name=".ObjetActivity">
 
         </activity>
+        <activity android:name=".dao.RecyclerActivity">
+
+        </activity>
     </application>
 
 </manifest>

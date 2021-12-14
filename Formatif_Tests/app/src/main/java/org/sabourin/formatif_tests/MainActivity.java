@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.sabourin.formatif_tests.dao.RecyclerActivity;
 import org.sabourin.formatif_tests.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,InterfaceActivity.class);
-                startActivity(i)    ;
+                startActivity(i);
+
+            }
+        });
+
+        binding.btnRecycler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(MainActivity.this, RecyclerActivity.class);
+                startActivity(i);
+
 
             }
         });
